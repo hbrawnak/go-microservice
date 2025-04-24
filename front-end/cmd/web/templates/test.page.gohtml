@@ -1,0 +1,36 @@
+{{template "base" .}}
+
+{{define "content" }}
+    <div class="container py-5">
+        <div class="row mb-4">
+            <div class="col">
+                <h1 class="text-primary">🧪 Test Microservices</h1>
+                <hr>
+                <div id="output" class="bg-light p-4 rounded shadow-sm">
+                    <span class="text-muted">Output shows here...</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-6">
+                <h4 class="text-success">📤 Sent</h4>
+                <div class="bg-white border p-4 rounded shadow-sm">
+                    <pre id="payload" class="mb-0"><span class="text-muted">Nothing sent yet...</span></pre>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4 class="text-info">📥 Received</h4>
+                <div class="bg-white border p-4 rounded shadow-sm">
+                    <pre id="received" class="mb-0"><span class="text-muted">Nothing received yet...</span></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+{{end}}
+
+{{define "js"}}
+    <script>
+
+    </script>
+{{end}}
