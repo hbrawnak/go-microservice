@@ -2,3 +2,5 @@
 .DS_Store
 broker-service/brokerApp
 front-end/frontApp
+authentication/authApp
+project/db-data/postgres/*
