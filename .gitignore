@@ -3,5 +3,6 @@
 broker-service/brokerApp
 front-end/frontApp
 authentication/authApp
+logger/loggerApp
 project/db-data/postgres/*
 project/db-data/mongo/*
