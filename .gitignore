@@ -4,5 +4,6 @@ broker-service/brokerApp
 front-end/frontApp
 authentication/authApp
 logger/loggerApp
+mail-service/mailerApp
 project/db-data/postgres/*
 project/db-data/mongo/*
