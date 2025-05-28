@@ -5,5 +5,4 @@ front-end/frontApp
 authentication/authApp
 logger/loggerApp
 mail-service/mailerApp
-project/db-data/postgres/*
-project/db-data/mongo/*
+project/db-data/*
