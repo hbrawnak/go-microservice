@@ -13,3 +13,14 @@ func declareExchange(ch *amqp.Channel) error {
 		nil,          // arguments?
 	)
 }
+
+func declareQueue(ch *amqp.Channel) (amqp.Queue, error) {
+	return ch.QueueDeclare(
+		"",    // name?
+		true,  // durable?
+		false, // auto-delete?
+		false, // internal?
+		false, //no-wait?
+		nil,   // arguments?
+	)
+}
