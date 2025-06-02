@@ -5,4 +5,5 @@ front-end/frontApp
 authentication/authApp
 logger/loggerApp
 mail-service/mailerApp
+listener-service/listenerApp
 project/db-data/*
