@@ -13,7 +13,7 @@ import (
 const port = "80"
 
 type Config struct {
-	Rabbit *amqp.Connection
+	RabbitConnection *amqp.Connection
 }
 
 func main() {
@@ -27,7 +27,7 @@ func main() {
 	defer rabbitConnection.Close()
 
 	app := Config{
-		Rabbit: rabbitConnection,
+		RabbitConnection: rabbitConnection,
 	}
 	log.Printf("Starting broker service on port %s\n", port)
 
