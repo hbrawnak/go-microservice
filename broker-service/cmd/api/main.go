@@ -23,6 +23,7 @@ func main() {
 		log.Println(err)
 		os.Exit(1)
 	}
+	log.Printf("Connected to RabbitMQ\n")
 
 	defer rabbitConnection.Close()
 
