@@ -1,52 +1,86 @@
-# Go Microservices Project
+# Go Microservices
 
-This project is a collection of microservices written in Go. Each service has its own folder and is responsible for a specific task. The services communicate with each other using HTTP and RabbitMQ.
+A modern microservices architecture built with Go, featuring event-driven communication and containerized deployment.
 
-## Services
+## Architecture
 
-- **broker-service**: Handles requests and routes them to the correct service.
-- **authentication**: Manages user authentication and authorization.
-- **logger**: Logs events and errors from other services.
-- **mail-service**: Sends emails for notifications and alerts.
-- **listener-service**: Listens for events from RabbitMQ and processes them.
-- **front-end**: The web front-end for users.
+| Service | Port | Purpose | Technology |
+|---------|------|---------|------------|
+| **Broker** | 8080 | API Gateway & Request Routing | HTTP REST APIs |
+| **Authentication** | 8081 | User Auth & Authorization | PostgreSQL, JWT |
+| **Logger** | - | Centralized Logging via gRPC | MongoDB, gRPC |
+| **Mail** | - | Email Notifications | SMTP, Go templates |
+| **Listener** | - | RabbitMQ Event Processing | AMQP, Event-driven |
+| **Frontend** | - | Web Interface | Go HTML templates |
 
-## How to Run
+### Service Details
 
-You can use the Makefile inside the `project` folder to manage and run your services easily.
+- **Broker Service**: Entry point for all requests, routes to appropriate microservices
+- **Authentication Service**: Manages user registration, login, and JWT token validation
+- **Logger Service**: Receives log data via gRPC calls and stores in MongoDB
+- **Mail Service**: Sends emails using configurable SMTP settings with HTML/text templates
+- **Listener Service**: Consumes events from RabbitMQ queue for asynchronous processing
+- **Frontend Service**: Serves web pages and handles user interactions
 
-### Common Commands
+## Quick Start
 
-- `make up` - Start all Docker containers in the background.
-- `make up_build` - Build all Go binaries, then start Docker containers (rebuilds images if needed).
-- `make down` - Stop all Docker containers.
-- `make build_broker` - Build the broker service binary for Linux.
-- `make build_auth` - Build the authentication service binary for Linux.
-- `make build_logger` - Build the logger service binary for Linux.
-- `make build_mail` - Build the mail service binary for Linux.
-- `make build_listener` - Build the listener service binary for Linux.
-- `make build_front` - Build the front-end binary.
-- `make start` - Build and start the front-end locally (without Docker).
-- `make stop` - Stop the front-end running locally.
+Navigate to the `project` directory and run:
 
-You can also run `docker-compose up` manually.
+```bash
+# Start everything
+make up_build
 
-## Folder Structure
+# Or just start (without rebuild)
+make up
 
-- Each service has its own folder with its code and Dockerfile.
-- The `project` folder contains the `docker-compose.yaml` file to run all services together.
+# Stop all services
+make down
+```
 
-## Requirements
+## Tech Stack
 
-- Go
-- RabbitMQ
-- PostgreSQL
-- MongoDB
-- Docker
+**Backend**: Go, gRPC, REST APIs  
+**Databases**: PostgreSQL, MongoDB  
+**Messaging**: RabbitMQ (AMQP)  
+**Email**: SMTP, MailHog (development)  
+**Deployment**: Docker, Docker Compose  
+**Build**: Make, Go modules
 
-## Notes
+## Development
 
-- Services use RabbitMQ for messaging.
-- MongoDB and PostgreSQL are used for data storage.
-- You can add more services as needed.
+```bash
+# Build individual services
+make build_broker
+make build_auth
+make build_logger
+make build_mail
+make build_listener
+
+# Run frontend locally
+make start
+make stop
+```
+
+## Project Structure
+
+```
+├── authentication/     # User management service
+├── broker-service/     # API gateway
+├── logger/            # Logging service with gRPC
+├── mail-service/      # Email service
+├── listener-service/  # Event consumer
+├── front-end/         # Web interface
+└── project/           # Docker orchestration
+    ├── docker-compose.yaml
+    └── Makefile
+```
+
+## Prerequisites
+
+- Go 1.19+
+- Docker & Docker Compose
+- Make
+
+---
+*[Habibur Rahman](https://habib.im)*
 
