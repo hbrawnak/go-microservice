@@ -8,3 +8,5 @@ logger/loggerApp
 mail-service/mailerApp
 listener-service/listenerApp
 project/db-data/*
+project/caddy_data/*
+project/caddy_config/*
