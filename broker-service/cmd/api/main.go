@@ -10,7 +10,7 @@ import (
 	"time"
 )
 
-const port = "80"
+const port = "8080"
 
 type Config struct {
 	RabbitConnection *amqp.Connection
