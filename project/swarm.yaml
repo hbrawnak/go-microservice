@@ -2,7 +2,7 @@ version: '3'
 
 services:
   caddy:
-    image: hbrawnak/goapp-micro-caddy:1.0.0
+    image: hbrawnak/goapp-micro-caddy:1.0.1
     deploy:
       mode: replicated
       replicas: 1
